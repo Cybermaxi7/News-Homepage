@@ -1,0 +1,374 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap");
+
+/* Box Sizing Rule */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a {
+  text-decoration: none;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/static/");
+}
+
+:root {
+  --color-orange: hsl(35, 77%, 62%);
+  --color-red: hsl(5, 85%, 63%);
+  --color-offWhite: hsl(36, 100%, 99%);
+  --color-grayBlue: hsl(233, 8%, 79%);
+  --color-darkGrey-Blue: hsl(236, 13%, 42%);
+  --color-veryDarkBlue: hsl(240, 100%, 5%);
+}
+html {
+  font-size: 93.75%;
+}
+body {
+  font-family: "Inter", sans-serif;
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  overflow-x: hidden;
+}
+header {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3rem 0 4rem 0;
+}
+header > img {
+  width: 4rem;
+  object-fit: contain;
+}
+.navigation {
+  display: flex;
+  gap: 2rem;
+  font-size: 1.2rem;
+  transition: all 0.3s ease-out;
+}
+
+.navigation[data-visible="true"] {
+  transform: translateX(0);
+}
+.navigation li {
+  list-style: none;
+}
+.navigation li a {
+  color: var(--color-veryDarkBlue);
+  transition: all 0.3s ease-out;
+}
+.navigation li a:hover {
+  color: var(--color-red);
+}
+.sr-only {
+  opacity: 0;
+}
+.mobile-nav-toggle {
+  display: none;
+}
+@media screen and (max-width: 600px) {
+  .blurBg {
+    width: 100%;
+    height: 100vh;
+    background-color:rgba(197, 198, 206, 0.432);;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .navigation {
+    position: fixed;
+    inset: 0 0 0 30%;
+    background-color: var(--color-offWhite);
+    flex-direction: column;
+    padding: 12rem 3rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+    z-index: 1000;
+    transform: translateX(100%);
+    margin: 0;
+  }
+  .mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    z-index: 9999;
+    top: 4rem;
+    right: 4rem;
+    width: 2rem;
+    aspect-ratio: 1;
+    color: red;
+    background-image: url(../assets/images/icon-menu.svg);
+    background-repeat: no-repeat;
+    border: 0;
+    background-color: transparent;
+  }
+  .mobile-nav-toggle[aria-expanded="true"] {
+    background-image: url(../assets/images/icon-menu-close.svg);
+  }
+}
+main {
+  width: 80%;
+}
+.top {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+}
+.left {
+  width: 66%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.left img {
+  max-width: 100%;
+}
+@media screen and (max-width: 1200px) {
+  .left img {
+    height: 25rem;
+  }
+}
+.intro {
+  display: flex;
+  gap: 2rem;
+}
+.intro h1 {
+  font-size: 3.5rem;
+  line-height: 3rem;
+  font-weight: 800;
+  width: 50%;
+}
+.intro div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.intro-paragraph {
+  font-size: 0.9rem;
+  color: var(--color-darkGrey-Blue);
+}
+.intro-link {
+  text-decoration: none;
+  color: var(--color-offWhite);
+  padding: 0.7rem 2.5rem;
+  background-color: var(--color-red);
+  width: fit-content;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+  font-size: 0.9rem;
+}
+
+.right {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background-color: var(--color-veryDarkBlue);
+  color: var(--color-offWhite);
+  gap: 1.5rem;
+  height: auto;
+}
+.right h2 {
+  font-size: 2rem;
+  color: var(--color-orange);
+}
+
+.new:not(:last-child) {
+  border-bottom: 0.1px solid #fff;
+
+  padding-bottom: 1rem;
+}
+.new a {
+  font-size: 1.2rem;
+  padding-bottom: 1rem;
+  color: inherit;
+  font-weight: 600;
+  transition: all 0.3s ease-out;
+}
+.new a:hover {
+  color: var(--color-orange);
+}
+.new p {
+  font-size: 0.9rem;
+  color: var(--color-darkGrey-Blue);
+  font-weight: 400;
+}
+.bottom {
+  display: flex;
+  margin-top: 2rem;
+}
+
+.col {
+  display: flex;
+  /* gap: 2rem; */
+  width: 33%;
+  margin-right: 2rem;
+}
+.col img {
+  max-width: 5rem;
+  /* height: 3rem; */
+}
+.col div {
+  padding-left: 2rem;
+  /* width: 60%; */
+}
+.col:last-child {
+  padding-left: 1rem;
+}
+.col div h2 {
+  color: var(--color-grayBlue);
+  font-size: 1.4rem;
+}
+
+.col div a {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-veryDarkBlue);
+  transition: all 0.3s ease-out;
+}
+.col div a:hover {
+  color: var(--color-red);
+}
+.col div p {
+  font-size: 0.9rem;
+  color: var(--color-darkGrey-Blue);
+}
+
+@media screen and (max-width: 900px) {
+  header {
+    width: 90%;
+  }
+  main {
+    width: 90%;
+  }
+  .top {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .left {
+    width: 100%;
+  }
+
+  .left img {
+    max-width: 100%;
+    height: auto;
+  }
+  .intro {
+    flex-direction: column;
+  }
+  .intro h1 {
+    font-size: 4rem;
+    width: 100%;
+    line-height: 4rem;
+  }
+  .intro div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .intro-paragraph {
+    font-size: 1.1rem;
+  }
+  .intro-link {
+    margin: 1rem 0 3rem 0;
+  }
+  .right {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .bottom {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .col {
+    width: 100%;
+    margin-right: 0;
+  }
+  .col img {
+    max-width: 5rem;
+  }
+
+  .col:last-child {
+    padding-left: 0;
+  }
+  .col div h2 {
+    font-size: 2rem;
+  }
+
+  .col div a {
+    font-size: 1.2rem;
+  }
+  .col div p {
+    font-size: 0.9rem;
+  }
+}
